@@ -5,7 +5,7 @@ import {CoinGeckoMarketCoin} from "@/types";
 
 export default async function GetHomeTckr(): Promise<TckrProps[] | undefined> {
     try {
-        const res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&include_tokens=top&order=market_cap_desc&per_page=5&sparkline=false&price_change_percentage=1h")
+        const res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&include_tokens=top&order=market_cap_desc&per_page=5&sparkline=false&price_change_percentage=24h")
         console.log({res})
         const data: CoinGeckoMarketCoin[] = await res.json();
         if (!Array.isArray(data)) {

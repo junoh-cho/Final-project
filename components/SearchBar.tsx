@@ -5,12 +5,9 @@ import styled from 'styled-components'
 
 const StyledDiv = styled.div`
       background-color: lightsteelblue;
-    height: 30vh;
-      text-align: center;
-        padding: 10px;
-      font-size: calc(10px + 3vh);
-        display: flex;
-    flex-direction: column;
+    
+    padding: 10px;
+      
 `
 const StyledInput = styled.input`
       border: 1px solid black;
@@ -18,13 +15,27 @@ const StyledInput = styled.input`
     align-self: center;
     background-color: lightgrey;
     text-align: center;
+    margin: 10px;
 `
 const StyledLink = styled(Link) `
     background-color: lightblue;
-    width: 30vw;
+    width: 20vw;
     align-self: center;
     margin: 10px;
     border: 1px solid black;
+`
+const StyledDiv2 = styled.div`
+    border: 2px solid steelblue;
+    height: 30vh;
+    text-align: center;
+    padding: 10px;
+    font-size: calc(10px + 3vh);
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    background-color: cadetblue;
+    margin: 0 auto;
+    
 `
 
 export default function SearchBar() {
@@ -32,15 +43,17 @@ export default function SearchBar() {
 
     return (
         <StyledDiv>
-            <p> Search by Ticker</p>
-            <label htmlFor="TCKR"></label>
-            <StyledInput
-                type="text"
-                id="TCKR"
-                placeholder="e.g., btc"
-                onChange={(e) => setTckr(e.target.value)}
-            />
-            <StyledLink href={`/${tckr}`}>Enter</StyledLink>
+            <StyledDiv2>
+                <p> Search by Ticker</p>
+                <label htmlFor="TCKR"></label>
+                <StyledInput
+                    type="text"
+                    id="TCKR"
+                    placeholder="e.g., btc"
+                    onChange={(e) => setTckr(e.target.value)}
+                />
+                <StyledLink href={`/${tckr}`}>Enter</StyledLink>
+            </StyledDiv2>
         </StyledDiv>
     );
 }

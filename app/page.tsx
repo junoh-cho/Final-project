@@ -5,7 +5,7 @@ import SearchBar from '@/components/SearchBar'
 
 export default function Home() {
   return (
-    <div className = "text-center h-screen">
+    <div className = "text-center h-screen ">
 
         <SearchBar/>
 
