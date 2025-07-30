@@ -6,6 +6,10 @@ import Link from 'next/link'
 const StyledWrapper = styled.div`
     background-color: lightsteelblue;
     height: 100vh;
+    
+`
+const StyledP22 = styled.p`
+    font-size: calc(10px + 3vh);
 `
 const CoinButton = styled.div`
     border: 1px solid black;
@@ -14,6 +18,7 @@ const CoinButton = styled.div`
     background-color: lavender;
     display: inline-flex;
     padding: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     
     
 `
@@ -44,13 +49,24 @@ const StyledP = styled.p`
     justify-content: center;
     align-self: center;
 `
+const StyledTop = styled.div`
+    
+    width: 30vw;
+    margin: 10px;
+    
+    display: inline-flex;
+    padding: 10px;
+    justify-content: center;
+`
 
-
-export default function HomeDisplay({TckrData}: {TckrData: TckrProps[]}) {
+export default function HomeDisplay({TckrData, topGainer,}: {
+    TckrData: TckrProps[];
+    topGainer: TckrProps[];
+}) {
 
     return(
         <StyledWrapper>
-            <p> Top 5 Coins</p>
+            <StyledP22> Top 5 Coins </StyledP22>
             {TckrData.map((coin, index) => (
                 <Link href={`/${coin.symbol}`} passHref key={index}>
                 <CoinButton key = {index} >
@@ -76,9 +92,34 @@ export default function HomeDisplay({TckrData}: {TckrData: TckrProps[]}) {
                     <StyledP> Market Cap Rank: {coin.market_cap_rank}</StyledP>
 
                 </CoinButton>
+
                 </Link>
 
             ))}
+
+            <StyledP22>Top 3 Performers</StyledP22>
+            <StyledTop>
+                {topGainer.map((coin, index) => (
+                    <Link href={`/${coin.symbol}`} passHref key={index}>
+                        <CoinButton>
+                            <StyledDiv2>
+                                <p>{coin.name} ({coin.symbol})</p>
+                                <StyledImg src={coin.image} alt={coin.name} />
+                            </StyledDiv2>
+                            <StyledDiv3>
+                                <p>
+                                    {coin.current_price}$
+                                    <Triangle $isUp={coin.price_change_percentage_24h > 0}>
+                                        {coin.price_change_percentage_24h > 0 ? "▲" : "▼"}
+                                    </Triangle>
+                                </p>
+                                <p>{coin.price_change_percentage_24h.toFixed(2)}%</p>
+                            </StyledDiv3>
+                            <StyledP>Market Cap Rank: {coin.market_cap_rank}</StyledP>
+                        </CoinButton>
+                    </Link>
+                ))}
+            </StyledTop>
         </StyledWrapper>
     );
 }

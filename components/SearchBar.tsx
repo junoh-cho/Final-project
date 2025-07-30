@@ -16,6 +16,7 @@ const StyledInput = styled.input`
     background-color: lightgrey;
     text-align: center;
     margin: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 `
 const StyledLink = styled(Link) `
     background-color: lightblue;
@@ -23,6 +24,7 @@ const StyledLink = styled(Link) `
     align-self: center;
     margin: 10px;
     border: 1px solid black;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 `
 const StyledDiv2 = styled.div`
     border: 2px solid steelblue;
@@ -35,6 +37,7 @@ const StyledDiv2 = styled.div`
     width: 40vw;
     background-color: cadetblue;
     margin: 0 auto;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     
 `
 
