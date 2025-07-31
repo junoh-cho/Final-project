@@ -2,6 +2,7 @@
 import {TckrProps} from "@/types";
 import styled from 'styled-components'
 import Link from 'next/link'
+import ScrollBar from '@/components/ScrollBar'
 
 const StyledWrapper = styled.div`
     background-color: lightsteelblue;
@@ -59,13 +60,15 @@ const StyledTop = styled.div`
     justify-content: center;
 `
 
-export default function HomeDisplay({TckrData, topGainer,}: {
+export default function HomeDisplay({TckrData, topGainer, scrollBar}: {
     TckrData: TckrProps[];
     topGainer: TckrProps[];
+    scrollBar: TckrProps[];
 }) {
 
     return(
         <StyledWrapper>
+            <ScrollBar scrollBar={scrollBar}/>
             <StyledP22> Top 5 Coins </StyledP22>
             {TckrData.map((coin, index) => (
                 <Link href={`/${coin.symbol}`} passHref key={index}>
@@ -84,7 +87,7 @@ export default function HomeDisplay({TckrData, topGainer,}: {
 
                         <p>
 
-                            ({coin.price_change_percentage_24h.toFixed(2)}%)
+                            ({coin.price_change_24h.toFixed(2)}$)
 
                         </p>
 
