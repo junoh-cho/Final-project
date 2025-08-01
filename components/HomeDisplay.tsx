@@ -3,6 +3,7 @@ import {TckrProps} from "@/types";
 import styled from 'styled-components'
 import Link from 'next/link'
 import ScrollBar from '@/components/ScrollBar'
+import ChartRetrieve from "@/components/ChartRetrieve";
 
 const StyledWrapper = styled.div`
     background-color: lightsteelblue;
@@ -20,6 +21,7 @@ const CoinButton = styled.div`
     display: inline-flex;
     padding: 10px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    
     
     
 `
@@ -59,6 +61,9 @@ const StyledTop = styled.div`
     padding: 10px;
     justify-content: center;
 `
+const StyledDiv4 = styled.div`
+   display: flex;
+`
 
 export default function HomeDisplay({TckrData, topGainer, scrollBar}: {
     TckrData: TckrProps[];
@@ -93,7 +98,7 @@ export default function HomeDisplay({TckrData, topGainer, scrollBar}: {
 
                     </StyledDiv3>
                     <StyledP> Market Cap Rank: {coin.market_cap_rank}</StyledP>
-
+                    <ChartRetrieve Name={coin.id}/>
                 </CoinButton>
 
                 </Link>
@@ -105,21 +110,26 @@ export default function HomeDisplay({TckrData, topGainer, scrollBar}: {
                 {topGainer.map((coin, index) => (
                     <Link href={`/${coin.symbol}`} passHref key={index}>
                         <CoinButton>
-                            <StyledDiv2>
-                                <p>{coin.name} ({coin.symbol})</p>
-                                <StyledImg src={coin.image} alt={coin.name} />
-                            </StyledDiv2>
-                            <StyledDiv3>
-                                <p>
-                                    {coin.current_price}$
-                                    <Triangle $isUp={coin.price_change_percentage_24h > 0}>
-                                        {coin.price_change_percentage_24h > 0 ? "▲" : "▼"}
-                                    </Triangle>
-                                </p>
-                                <p>{coin.price_change_percentage_24h.toFixed(2)}%</p>
-                            </StyledDiv3>
-                            <StyledP>Market Cap Rank: {coin.market_cap_rank}</StyledP>
+
+                                <StyledDiv2>
+                                    <p>{coin.name} ({coin.symbol})</p>
+                                    <StyledImg src={coin.image} alt={coin.name} />
+                                </StyledDiv2>
+                                <StyledDiv3>
+                                    <p>
+                                        {coin.current_price}$
+                                        <Triangle $isUp={coin.price_change_percentage_24h > 0}>
+                                            {coin.price_change_percentage_24h > 0 ? "▲" : "▼"}
+                                        </Triangle>
+                                    </p>
+                                    <p>{coin.price_change_percentage_24h.toFixed(2)}%</p>
+                                </StyledDiv3>
+                                    <StyledP>Market Cap Rank: {coin.market_cap_rank}</StyledP>
+
+
+
                         </CoinButton>
+                        <ChartRetrieve Name={coin.id}/>
                     </Link>
                 ))}
             </StyledTop>
