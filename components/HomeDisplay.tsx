@@ -62,7 +62,7 @@ const StyledTop = styled.div`
     justify-content: center;
 `
 const StyledDiv4 = styled.div`
-   display: flex;
+   width:10vw;
 `
 
 export default function HomeDisplay({TckrData, topGainer, scrollBar}: {

@@ -13,9 +13,11 @@ import getChart from "@/lib/getChart";
 type Props = {
     Name: string;
 };
+
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip);
 export default function ChartRetrieve({Name} : Props) {
     const [chartData, setChartData] = useState<number[]>([]);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -24,7 +26,7 @@ export default function ChartRetrieve({Name} : Props) {
         }
         fetchData();
     }, [Name]);
-
+    console.log(chartData)
     if (chartData.length === 0) return <p>Loading chart...</p>;
     const data = {
         labels: chartData.map((_, i) => i), // simple x-axis labels: 0,1,2...

@@ -1,4 +1,4 @@
-import entry from "next/dist/server/typescript/rules/entry";
+
 
 export default async function getChart(Name: string): Promise<number[]> {
     const url = 'https://api.coingecko.com/api/v3/coins/ripple/market_chart?vs_currency=usd&days=1';
