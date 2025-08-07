@@ -2,7 +2,7 @@
     Dynamic route server component:
     Handles server-side data fetching from API, uses the url param to identify the coin
     Once the coin is identified, it is passed as a prop to Tckr.tsx
-
+    Various error handling implemented.
     Written by Junoh Cho
  */
 
@@ -52,7 +52,7 @@ export default async function TckrPage({ params }: { params: Promise<{ tckr: str
         }
 
         const coin = (data as TckrProps[]).find(
-            (c) => c.symbol.toLowerCase() === symbol.toLowerCase()
+            (c) => c.symbol.toLowerCase() === symbol.toLowerCase()//finds specific coin object from the fetched data list
         );
 
         if (!coin) { //Handles coin not found
@@ -67,8 +67,9 @@ export default async function TckrPage({ params }: { params: Promise<{ tckr: str
                 <Tckr coin={coin} />
             </Suspense>
         );
-    } catch (error: any) {
-        console.error("[TckrPage ERROR]", error.message || error);
+    } catch (error: any) { //Handles any unexpected errors during data fetch or processing,
+        console.error("[TckrPage ERROR]", error.message || error); // logs the error for debugging, and displays a fallback UI to the user.
+
         return <p>Failed to load coin data.</p>;
     }
 }

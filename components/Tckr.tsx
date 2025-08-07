@@ -1,6 +1,6 @@
 /*
     This component displays detailed information about a selected coin (ticker),
-    including its image, name, symbol, current price, 24-hour change, a price chart, 
+    including its logo image, name, symbol, current price, 24-hour change, a price chart,
     and extra stats such as market cap, 24h high, and 24h low.
 
     It fetches market chart data from the CoinGecko API using the coin’s ID
@@ -40,7 +40,7 @@ ChartJS.register(
 
 // Page background with conditional theme support
 const PageWrapper = styled.div.withConfig({
-    shouldForwardProp: (prop) => prop !== "isDarkMode",
+    shouldForwardProp: (prop) => prop !== "isDarkMode", //shouldForwardProp prevents error when props get passed down to DOM
 })<{ isDarkMode: boolean }>`
     background-color: ${(props) => (props.isDarkMode ? "black" : "#f0f0f0")};
     min-height: 100vh;
@@ -111,9 +111,9 @@ const Price = styled.p.withConfig({
 `;
 
 const PriceChange = styled.div.withConfig({
-    shouldForwardProp: (prop) => prop !== 'isPositive'
+    shouldForwardProp: (prop) => prop !== 'isPositive' //prop that checks if price change is positive or negative
 })<{ isPositive: boolean }>`
-    color: ${(props) => (props.isPositive ? "limegreen" : "tomato")};
+    color: ${(props) => (props.isPositive ? "green" : "red")}; //changes color accoridngly.
     font-weight: bold;
     font-size: 2vw;
 `;

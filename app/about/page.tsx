@@ -1,4 +1,12 @@
+/*
+    This is the "about" page that provides a general description of this webapp, and who the developers are ie Owen and I.
+    Uses the theme hook to switch from black and white, but besides that it is a simple page using styled components.
+
+    Written by Junoh Cho
+ */
+
 "use client";
+
 
 import styled from "styled-components";
 import { useTheme } from "@/app/context/useTheme";
