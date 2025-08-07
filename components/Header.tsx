@@ -1,3 +1,13 @@
+/*
+    This component is static , and will appear on every page
+    The title (Crpto tracker is made as a link to Home when clicked)
+    We add a citation to COINKGEKKO for the API USE
+    We also have a static link to the about page
+
+    Written By Owen Lennox
+ */
+
+
 "use client"
 import styled from 'styled-components'
 import Link from 'next/link'
@@ -38,15 +48,15 @@ const StyledLink2 = styled(Link) `
 `
 
 export default function Header() {
-    const { isDarkMode, toggleTheme } = useTheme(); // ✅ this is correct
+    const { isDarkMode, toggleTheme } = useTheme(); // toggle the theme
     return(
         <StyledDiv>
-            <Link href = "/"> Crypto Tracker </Link>
-            <button onClick={toggleTheme}>
+            <Link href = "/"> Crypto Tracker </Link> {/* Link back to home page */}
+            <button onClick={toggleTheme}> {/* If isDarkmode is true the moon will be the button, else it is the sun */}
                 {isDarkMode ? "🌙" : "\u2600"}
             </button>
             <div>
-                <StyledLink href = "https://www.coingecko.com" >
+                <StyledLink href = "https://www.coingecko.com" > {/* links to coin Gekko and About Page */}
                     Powered by CoinGecko API
                 </StyledLink>
                 <StyledLink href = '/about'> About Page</StyledLink>

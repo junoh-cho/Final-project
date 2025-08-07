@@ -15,7 +15,7 @@ const CRYPTO_API_KEY = process.env.CRYPTO_API_KEY;
 
 export default async function GetHomeTckr(): Promise<TckrProps[] | undefined> {
     incrementApiCall("GetScrollBar");
-
+    // clean way to format
     try {
         const url =
             "https://api.coingecko.com/api/v3/coins/markets?" +
@@ -23,7 +23,7 @@ export default async function GetHomeTckr(): Promise<TckrProps[] | undefined> {
                 vs_currency: "usd",
                 include_tokens: "top",
                 order: "market_cap_desc",
-                per_page: "25",
+                per_page: "25", // retrieve 25 of the top coins
                 sparkline: "false",
                 price_change_percentage: "24h",
             });
@@ -37,7 +37,7 @@ export default async function GetHomeTckr(): Promise<TckrProps[] | undefined> {
         };
 
         const res = await fetch(url, options);
-
+            //add to data
         const data: CoinGeckoMarketCoin[] = await res.json();
 
         if (!Array.isArray(data)) {

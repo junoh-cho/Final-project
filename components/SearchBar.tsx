@@ -17,7 +17,9 @@ import Link from "next/link";
 import styled from 'styled-components'
 import { useTheme } from '@/app/context/useTheme';
 const StyledDiv = styled.div<{$dark : boolean}>`
+    // We check the background color
     background-color: ${({ $dark }) => ($dark ? '#121212' : '#f9f9f9')};
+    // we add a border to seperate search bar from rest of page
     border-top: 2px solid green;
     border-bottom: 2px solid green;
     padding: 10px;
@@ -25,7 +27,9 @@ const StyledDiv = styled.div<{$dark : boolean}>`
       
 `
 const StyledInput = styled.input`
-      border: 1px solid black;
+    // intialize a box to input  
+    
+    border: 1px solid black;
         width: 30vw;
     align-self: center;
     background-color: lavender;
@@ -34,6 +38,7 @@ const StyledInput = styled.input`
   
 `
 const StyledLink = styled(Link) `
+    // this is the clickable link to redirect
     background-color: lightblue;
     width: 20vw;
     align-self: center;
@@ -42,6 +47,7 @@ const StyledLink = styled(Link) `
     
 `
 const StyledDiv2 = styled.div`
+    // we put the search bar in a box
     border: 2px solid forestgreen;
     height: 30vh;
     text-align: center;
@@ -52,7 +58,7 @@ const StyledDiv2 = styled.div`
     width: 40vw;
     background-color: mediumseagreen;
     margin: 0 auto;
-    overflow: auto;
+    overflow: auto; // if the screen gets small, you can scroll on the search bar
 `
 
 export default function SearchBar() {

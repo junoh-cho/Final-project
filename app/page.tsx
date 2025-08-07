@@ -12,7 +12,7 @@ import SearchBar from '@/components/SearchBar'
 
 export default function Home() {
   return (
-    <div className = "text-center h-screen font-sans ">
+    <div className = "text-center h-screen font-sans "> {/* removes extra white space*/}
 
         <SearchBar/> {/* adds search bar */}
 

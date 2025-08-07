@@ -20,28 +20,35 @@ import RetrieveNews from "@/components/RetrieveNews";
 import { useTheme } from '@/app/context/useTheme';
 
 const StyledWrapper = styled.div<{ $dark: boolean }>`
+    
+    // We check the background color
     background-color: ${({ $dark }) => ($dark ? '#121212' : '#f9f9f9')};
     height: 100vh;
+    
     font-size: calc(5px + 1vh);
     padding:1vh;
     font-family: sans-serif "Times New Roman" "Arial Hebrew Scholar" ;
 `
 
 const StyledP22 = styled.p`
+    //style the header for our subdivisions 
     font-size: calc(10px + 2vh);
     color: black;
     background-color: #00e676;
     width: 25vw;
     margin: 1vh auto;
+    // we round the corners of the box
     box-shadow: 0 0 15px rgba(28, 231, 131, 0.3);
     border-radius: 12px;
 `
 const CoinButton = styled.div`
+    
+    // style each coin button
     border: 3px ;
     width: 30vw;
     margin: 1vh;
     background-color: lavender;
-    display: inline-flex;
+    display: inline-flex; //line them side by side
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(28, 231, 131, 0.4);
@@ -60,6 +67,7 @@ const StyledImg = styled.img`
     margin-left : 1vw;
 `
 const StyledDiv2 = styled.div`
+    //have the name and image appear side by side
     display: flex;
    align-self: center;
     justify-content: center;
@@ -68,11 +76,13 @@ const StyledDiv2 = styled.div`
     
 `
 const Triangle = styled.span<{ $isUp: boolean }>`
-  color: ${({ $isUp }) => ($isUp ? "green" : "red")};
+    // triange is green if up, red if down
+    color: ${({ $isUp }) => ($isUp ? "green" : "red")};
   margin-left: 5px;
 `;
 
 const StyledDiv3 = styled.div`
+    //have price and price change apear in col form 
     display: flex;
     flex-direction: column;
     margin-left: 1vw;
@@ -108,7 +118,7 @@ export default function HomeDisplay({TckrData, topGainer, scrollBar}: {
             <StyledP22> Top 5 Coins </StyledP22>
             {TckrData.map((coin, index) => ( // map over the top 5 coins 
                 <Link href={`/${coin.symbol}`}  key={index}> {/* make the coin clickable*/}
-                <CoinButton key = {index} >
+                <CoinButton key = {index} > {/* each coin appears with name, symbol, img, price change */}
                     <StyledDiv2>
                     <p> {coin.name} ({coin.symbol})</p>
 
@@ -140,7 +150,7 @@ export default function HomeDisplay({TckrData, topGainer, scrollBar}: {
             <StyledTop>
                 {topGainer.map((coin, index) => ( // map ober the top gaimers
                     <Link href={`/${coin.symbol}`}  key={index}> {/* make the coin clickable */}
-                        <CoinButton>
+                        <CoinButton> {/* add image, name symbol, and price  change to the button*/}
 
                                 <StyledDiv2>
                                     <p>{coin.name} ({coin.symbol})</p>

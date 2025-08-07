@@ -16,25 +16,25 @@ import styled from 'styled-components'
 import {decode} from 'html-entities'
 
 const StyledUL = styled.ul`
+    // seperates each iterm from the next
     list-style: none;
     display: flex;
-    
-    list-style: none;
     padding: 0;
     margin: 0 auto ;
-    gap: 1rem;
+    gap: 1vw;
     justify-content: center;
     font-size: calc(5px + 1vh);
     
 `
 const StyledLI = styled.li`
+   // Assue the text never is to large for screen 
     width: 30vw;
     height: 30vh;
     overflow: auto;
     border: 3px lightgreen;
     padding: 1vw;
     background-color: lavender;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) { //descreaces size to help fit
         font-size: calc(5px + 1vh);
         height: 20vh;
 }
@@ -43,6 +43,7 @@ const StyledLI = styled.li`
     
 `
 const StyledH3 = styled.h3`
+    // create some spacing
     margin-bottm: 1vh;
     font-size: calc(5px + 2vh);
     font-weight: bold;
@@ -52,7 +53,7 @@ const StyledH3 = styled.h3`
 
 export default function RetrieveNews() {
     const [newsArr, setNewsArr] = useState<NewsProps[]>([]); // Should be ann array of NewsProps
-
+    //try to fetch the news, if it doesnt work return a console error
     useEffect(() => {
         async function fetchNews() {
             try {
@@ -69,7 +70,7 @@ export default function RetrieveNews() {
 
   
     if (!newsArr) return <p>Loading news...</p>;
-
+        // add loading news if it fails
     return (
         Array.isArray(newsArr) && newsArr.length > 0 ? (
             <StyledUL> {/* This will return the title and description*/}

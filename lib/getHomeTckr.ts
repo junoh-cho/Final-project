@@ -40,10 +40,10 @@ export default async function GetHomeTckr(): Promise<TckrProps[]> {
 
         if (!res.ok) throw new Error('Failed ');
 
-        const data: CoinGeckoMarketCoin[] = await res.json();
+        const data: CoinGeckoMarketCoin[] = await res.json(); // data is of type COinGekoMarket array
 
         if (!Array.isArray(data)) throw new Error("FAIL");
-
+            // add all to tckr props array
         const tckrProps: TckrProps[] = data.map((coin) => ({
             id: coin.id,
             name: coin.name,

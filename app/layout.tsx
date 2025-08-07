@@ -1,3 +1,15 @@
+/*
+    The layout for a page is constructed Here, Intialize our theme provider
+    as the parent component, this allows the theme to be passed to all of its children
+    dark/light.
+    The header is initalized here. This is how it will be intialized on every page,
+
+
+    Written By Owen Lennox
+ */
+
+
+
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from '@/components/Header'
@@ -15,8 +27,8 @@ export default function RootLayout({
   return (
       <html lang="en">
       <body>
-      <ThemeProvider>
-          <Header/>
+      <ThemeProvider> {/* allows is Dark mode to be used in every component*/}
+          <Header/>  {/*  static header*/}
           {children}
       </ThemeProvider>
       </body>
